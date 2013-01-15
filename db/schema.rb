@@ -11,6 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20130115073608) do
+
+  create_table "users", :force => true do |t|
+    t.string   "full_name"
+    t.string   "email",                        :default => "f"
+    t.string   "crypted_password"
+    t.string   "salt"
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
+    t.string   "remember_me_token"
+    t.datetime "remember_me_token_expires_at"
+    t.integer  "failed_logins_count",          :default => 0
+    t.datetime "lock_expires_at"
+    t.string   "unlock_token"
+  end
+
+  add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"
 
 end
