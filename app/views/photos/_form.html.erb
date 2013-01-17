@@ -1,7 +1,7 @@
 <%= form_for @photo, :html => {:multipart => true} do |f| %>
-  <#%= f.error_messages %>
   <p>
     <%= f.file_field :image %>
   </p>
-  <p><%= f.submit %></p>
+  <p>Please make sure you are only uploading a <strong>JPEG</strong>, <strong>JPG</strong>, <strong>PNG</strong>, or <strong>GIF</strong>. Otherwise your file will not upload.</p>
+  <p><%= f.submit "Upload Photo" %></p>
 <% end %>
