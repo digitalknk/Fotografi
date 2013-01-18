@@ -8,6 +8,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::MimeTypes
   process :set_content_type
+  process :resize_to_fit => [1920,1920]
 
   # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
   include Sprockets::Helpers::RailsHelper
