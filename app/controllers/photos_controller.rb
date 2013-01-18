@@ -1,4 +1,6 @@
 class PhotosController < ApplicationController
+  before_filter :require_login, :only => [:new, :create, :edit, :destroy]
+
   # GET /photos
   # GET /photos.json
   def index

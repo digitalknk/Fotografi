@@ -1,10 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Image:</b>
-  <%= @photo.image %>
+  <%= image_tag @photo.image_url, :class => 'img-rounded'%>
 </p>
 
-
-<%= link_to 'Edit', edit_photo_path(@photo) %> |
-<%= link_to 'Back', photos_path %>
+<% if current_user %>
+  <div class="btn-group">
+    <button class="btn"><i class="icon-edit"></i> <%= link_to 'Edit', edit_photo_path(@photo) %> |
+    <button class="btn"><i class="icon-remove"></i> <%= link_to 'Back', photos_path %>
+	</div>
+<% end %>
