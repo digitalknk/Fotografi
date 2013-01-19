@@ -1,8 +1,41 @@
 CarrierWave.configure do |config|
-  config.fog_credentials = {
-    :provider                         => 'Google',
-    :google_storage_access_key_id     => ENV["GOOGLE_ACCESS_KEY_ID"],
-    :google_storage_secret_access_key => ENV["GOOGLE_SECRET_ACCESS_KEY"]
-  }
-  config.fog_directory = ENV["GOOGLE_BUCKET"]
+  if Rails.env.production?
+
+    ####################################################
+    ## Google Storage
+    #################################################### 
+    config.fog_credentials = {
+      :provider                         => ENV["PROVIDER"],
+      :google_storage_access_key_id     => ENV["ACCESS_KEY_ID"],
+      :google_storage_secret_access_key => ENV["SECRET_ACCESS_KEY"]
+    }
+    config.fog_directory = ENV["BUCKET"]
+
+
+    ####################################################
+    ## AMAZON S3 (AWS) Uncomment below
+    #################################################### 
+    # config.fog_credentials = {
+    #   :provider              => ENV["PROVIDER"],
+    #   :aws_access_key_id     => ENV["ACCESS_KEY_ID"],
+    #   :aws_secret_access_key => ENV["SECRET_ACCESS_KEY"]
+    # }
+    # config.fog_directory = ENV["BUCKET"]
+
+
+    ####################################################
+    ## Rackspace Cloud Files Uncomment below
+    #################################################### 
+    # config.fog_credentials = {
+    #   :provider           => ENV["PROVIDER"],
+    #   :rackspace_username => ENV["ACCESS_KEY_ID"],
+    #   :rackspace_api_key  => ENV["SECRET_ACCESS_KEY"]
+    # }
+    # config.fog_directory = ENV["BUCKET"]
+
+  else
+    #for development and testing locally
+    config.storage = :file
+    config.enable_processing = false
+  end
 end
