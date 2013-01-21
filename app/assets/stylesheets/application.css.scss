@@ -23,3 +23,51 @@
   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
   box-shadow: 0 1px 2px rgba(0,0,0,.15);
 }
+
+.-thumbnail > a > img {
+    display: block;
+    max-width: 100%;
+}
+
+.photo-group .photo-wrapper {
+  position: relative;
+}
+
+.photo-group .photo-wrapper .photo {
+    position: relative;
+    margin: 0 auto;
+    display: table;
+}
+
+.admin-links {
+  position: absolute;      
+  bottom: 5px;
+  right: 5px;
+  float: right;
+  color: white;
+}
+
+.social-links {
+  position: absolute;      
+  top: 5px;
+  right: 5px;
+  color: white;
+}
+
+.taken-by {
+  position: absolute;      
+  bottom: 5px;
+  left: 5px;
+  color: white;
+}
+
+.photo-title {
+  position: absolute;      
+  top: 5px;
+  left: 5px;
+  color: white;
+}
+
+.photo-group .photo-wrapper .photo-label {
+  float: right;
+}

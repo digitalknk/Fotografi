@@ -2,11 +2,11 @@
 <ul class="nav">
 	<% if current_user %>
 		<li>
-			<%= link_to "Log out", logout_path %>
-		</li>
-		<li>
 			<%= link_to 'New Photo', new_photo_path %>
 		</li>	
+		<li>
+			<%= link_to "Log out", logout_path %>
+		</li>
 	<% else %>
 		<li>
 			<%= link_to "Log in", login_path  %>

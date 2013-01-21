@@ -1,12 +1,18 @@
 <% @photos.each do |photo| %>
-<div>
-  <%= image_tag photo.image_url, :class => 'img-rounded'%>
+
+<div class="photo-group thumbnail">
+      <div class="photo photo-wrapper">
+      <span class="photo-title">Photo Title here soon!</span>
+      <%= image_tag photo.image_url, :class => 'img-rounded'%>
+      <span class="social-links">TW <br />FB <br /> G+</span>
+      <span class="taken-by">Photo taken by <%= photo.user.full_name %></span>
     <% if current_user %>
-      <div class="btn-group">
-        <button class="btn"><i class="icon-edit"></i> <%= link_to 'Edit', edit_photo_path(photo) %>
-        <button class="btn"><i class="icon-remove"></i> <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </div>
+      <span class="admin-links">
+        <i class="icon-edit icon-white"></i> <%= link_to 'Edit', edit_photo_path(photo) %> | 
+        <i class="icon-remove icon-white"></i> <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </span>
     <% end %>
+  </div>
 </div>
   <br />
 <% end %>
