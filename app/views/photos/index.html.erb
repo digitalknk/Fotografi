@@ -4,7 +4,14 @@
       <div class="photo photo-wrapper">
       <span class="photo-title">Photo Title here soon!</span>
       <%= image_tag photo.image_url, :class => 'img-rounded'%>
-      <span class="social-links">TW <br />FB <br /> G+</span>
+      <div class="social-links">
+        <div class="g-plusone" data-size="medium" data-href="http://urltogp.com"></div>
+        <br />
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.example.com" data-text="PhotoTitle" data-via="TwitterUserName" data-hashtags="photo">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        <br />
+        <div class="fb-like" data-href="http://example.com" data-send="false" data-layout="button_count" data-width="107" data-show-faces="false"></div>
+      </div>
       <span class="taken-by">Photo taken by <%= photo.user.full_name %></span>
     <% if current_user %>
       <span class="admin-links">
