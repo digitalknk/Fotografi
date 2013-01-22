@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<h1>
+  <%= @photo.title %>
+</h1>
+<p>
+  <%= @photo.description %>
+</p>
 <p>
   <%= image_tag @photo.image_url, :class => 'img-rounded'%>
 </p>

@@ -11,13 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130121065745) do
+ActiveRecord::Schema.define(:version => 20130122065833) do
 
   create_table "photos", :force => true do |t|
     t.string   "image"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "user_id"
+    t.string   "title"
+    t.text     "description"
   end
 
   create_table "users", :force => true do |t|
@@ -32,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20130121065745) do
     t.integer  "failed_logins_count",          :default => 0
     t.datetime "lock_expires_at"
     t.string   "unlock_token"
+    t.string   "twitter"
   end
 
   add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"
