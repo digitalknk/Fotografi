@@ -2,15 +2,19 @@
   <div>
     <%= f.file_field :image %>
   </div>
-    <div class="field">
+  <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_field :description %>
-  </div>  
-  <p>Please make sure you are only uploading a <strong>JPEG</strong>, <strong>JPG</strong>, <strong>PNG</strong>, or <strong>GIF</strong>. Otherwise your file will not upload.</p>
+  </div>
+  <p>Please make sure you are only uploading a
+    <strong>JPEG</strong>,
+    <strong>JPG</strong>,
+    <strong>PNG</strong>, or
+    <strong>GIF</strong>. Otherwise your file will not upload.</p>
   <%= hidden_field_tag :photo_user_id, current_user.id %>
   <p><%= f.submit "Upload Photo" %></p>
 <% end %>

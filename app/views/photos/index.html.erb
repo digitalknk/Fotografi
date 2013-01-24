@@ -1,30 +1,35 @@
 <% @photos.each do |photo| %>
-<div class="photo-group thumbnail">
-  <div class="photo photo-wrapper">
-    <% if photo.title %>
-    <span class="photo-title"><%= link_to photo.title , photo_path(photo) %></span>
-    <% end %>
-    <%= image_tag photo.image_url, :class => 'img-rounded'%>
-    <div class="social-links">
+  <div class="photo-group">
+    <div class="photo photo-wrapper">
+      <% if photo.title %>
+        <span class="photo-title"><%= link_to photo.title , photo_path(photo) %></span>
+      <% end %>
+      <%= image_tag photo.image_url, :class => 'img-rounded'%>
+      <div class="social-links">
         <div class="g-plusone" data-size="medium" data-href="<%= photo_url(photo) %>"></div>
         <br />
         <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= photo_url(photo) %>" data-text="<%= photo.title %>" data-via="<%= photo.user.twitter %>" data-hashtags="photo">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        <script>
+          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+        </script>
         <br />
         <div class="fb-like" data-href="<%= photo_url(photo) %>" data-send="false" data-layout="button_count" data-width="107" data-show-faces="false"></div>
+      </div>
+      <% if photo.user.full_name %>
+        <span class="taken-by">Photo taken by
+          <%= photo.user.full_name %></span>
+      <% end %>
+      <% if current_user %>
+        <span class="admin-links">
+          <i class="icon-edit"></i>
+          <%= link_to 'Edit Photo', edit_photo_path(photo) %>
+          |
+          <i class="icon-remove"></i>
+          <%= link_to 'Delete Photo', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </span>
+      <% end %>
     </div>
-    <% if photo.user.full_name %>
-      <span class="taken-by">Photo taken by <%= photo.user.full_name %></span>
-    <% end %>
-    <% if current_user %>
-      <span class="admin-links">
-        <i class="icon-edit"></i> <%= link_to 'Edit Photo', edit_photo_path(photo) %> | 
-        <i class="icon-remove"></i> <%= link_to 'Delete Photo', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </span>
-    <% end %>
   </div>
-</div>
   <br />
 <% end %>
-
 <br />

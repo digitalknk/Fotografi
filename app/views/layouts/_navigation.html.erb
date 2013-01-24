@@ -1,4 +1,8 @@
-<%= link_to "Fotografi", root_path, :class => 'brand' %>
+<% if ENV["SITE_TITLE"].nil? %>
+<%= link_to "My Photographs", root_path, :class => 'brand' %>
+<% else %>
+<%= link_to ENV["SITE_TITLE"], root_path, :class => 'brand' %>
+<% end %>
 <ul class="nav">
 	<% if current_user %>
 		<li>
