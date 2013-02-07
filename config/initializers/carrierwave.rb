@@ -5,7 +5,7 @@ CarrierWave.configure do |config|
     ## Google Storage
     #################################################### 
     config.fog_credentials = {
-      :provider                         => ENV["PROVIDER"],
+      :provider                         => 'Google',
       :google_storage_access_key_id     => ENV["ACCESS_KEY_ID"],
       :google_storage_secret_access_key => ENV["SECRET_ACCESS_KEY"]
     }
@@ -16,7 +16,7 @@ CarrierWave.configure do |config|
     ## AMAZON S3 (AWS) Uncomment below
     #################################################### 
     # config.fog_credentials = {
-    #   :provider              => ENV["PROVIDER"],
+    #   :provider              => 'AWS',
     #   :aws_access_key_id     => ENV["ACCESS_KEY_ID"],
     #   :aws_secret_access_key => ENV["SECRET_ACCESS_KEY"]
     # }
@@ -27,7 +27,7 @@ CarrierWave.configure do |config|
     ## Rackspace Cloud Files Uncomment below
     #################################################### 
     # config.fog_credentials = {
-    #   :provider           => ENV["PROVIDER"],
+    #   :provider           => 'Rackspace',
     #   :rackspace_username => ENV["ACCESS_KEY_ID"],
     #   :rackspace_api_key  => ENV["SECRET_ACCESS_KEY"]
     # }
