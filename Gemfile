@@ -21,4 +21,4 @@ gem 'sorcery'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'fog'
-gem 'pg'
+gem 'pg', :group => :production
