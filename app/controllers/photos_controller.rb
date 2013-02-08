@@ -3,6 +3,7 @@ class PhotosController < ApplicationController
 
   def index
     @photos = Photo.order("created_at desc").all
+    expires_in 24.hours
 
     respond_to do |format|
       format.html # index.html.erb
@@ -12,6 +13,7 @@ class PhotosController < ApplicationController
 
   def show
     @photo = Photo.find(params[:id])
+    expires_in 365.days, public: true
 
     respond_to do |format|
       format.html # show.html.erb

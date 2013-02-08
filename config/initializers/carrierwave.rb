@@ -10,6 +10,7 @@ CarrierWave.configure do |config|
       :google_storage_secret_access_key => ENV["SECRET_ACCESS_KEY"]
     }
     config.fog_directory = ENV["BUCKET"]
+    config.fog_attributes = {'Cache-Control'=>'max-age=31536000'}
 
 
     ####################################################
@@ -21,6 +22,7 @@ CarrierWave.configure do |config|
     #   :aws_secret_access_key => ENV["SECRET_ACCESS_KEY"]
     # }
     # config.fog_directory = ENV["BUCKET"]
+    # config.fog_attributes = {'Cache-Control'=>'max-age=31536000'}
 
 
     ####################################################
@@ -32,6 +34,7 @@ CarrierWave.configure do |config|
     #   :rackspace_api_key  => ENV["SECRET_ACCESS_KEY"]
     # }
     # config.fog_directory = ENV["BUCKET"]
+    # config.fog_attributes = {'Cache-Control'=>'max-age=31536000'}
 
   else
     #for development and testing locally
